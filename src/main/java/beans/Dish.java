@@ -24,10 +24,6 @@ public class Dish implements Serializable {
     private String description;
     private double price;
     
-    private long selectedDishId;
-    
-    private final Database connection = new Database();
-    
     public Dish() {}
     
     public Dish(long dishId, String name, String description, double price) {
@@ -49,40 +45,7 @@ public class Dish implements Serializable {
         return price;
     }
 
-    public long getSelectedDishId() {
-        return selectedDishId;
-    }
-
     public long getDishId() {
         return dishId;
-    }
-
-    public void setSelectedDishId(long selectedDishId) {
-        this.selectedDishId = selectedDishId;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-    
-    public void addNewDish() {
-        new Database().addNewDish(name, description, price);
-    }
-    
-    public void removeDish() {
-        //Derby has no DELETE ON CASCADE so this should not be implemented right now.
-    }
-    
-    public List<Dish> getAllDishes() {
-        return connection.getAllDishes();
-    }
-    
+    }    
 }

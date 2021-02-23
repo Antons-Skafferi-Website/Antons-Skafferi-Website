@@ -32,20 +32,4 @@ public class Alacarte implements Serializable {
     public List<Dish> getMainDishes() {
         return connection.getSubMenu(7);
     }
-    
-    public void deleteFromStarters(int dishId) {
-        connection.removeDishFromSubmenu(dishId, 6);
-    }
-    
-    public void deleteFromMain(int dishId) {
-        connection.removeDishFromSubmenu(dishId, 7);
-    }
-    
-    public void addToMain(int dishId) {
-        connection.addDishToSubmenu(dishId, 7);
-    }
-    
-    public void addToStarters(int dishId) {
-        connection.addDishToSubmenu(dishId, 6);
-    }
 }
