@@ -30,6 +30,11 @@ public class Database {
     "INNER JOIN APP.SUB_MENU_HAS_DISH AS SMHD ON D.DISH_ID = SMHD.DISH_ID " +
     "WHERE SMHD.SUB_MENU_ID = ?";
     
+    private String insertReservation = "INSERT INTO APP.RESERVATION " + 
+    "(CUSTOMER_NAME, CUSTOMER_EMAIL, CUSTOMER_COUNT, DATE_TIME, COMMENT)\n" +
+    "VALUES(?, ?, ?, '2020-02-24 17:30:00.000', 'vill så och äta')";
+    
+    //int numberOfGuests, String name, String date,  String email
     public Database() {
         this.dbURL = "jdbc:derby://localhost:1527/AntonsSkafferi";
         this.user = "anton";
@@ -55,6 +60,23 @@ public class Database {
         }
         
         return list;
+    }
+    
+    public boolean makeReservation(int numberOfGuests, String name, String email) {
+        System.out.println("name: " + name);
+        try (Connection connection = DriverManager.getConnection(dbURL, user, pw);
+            PreparedStatement ps = connection.prepareCall(insertReservation);
+        ){
+            
+            ps.setString(1, name);
+            ps.setString(2, email);
+            ps.setInt(3, numberOfGuests);
+            ps.execute();
+            return true;
+        }catch(SQLException e) {
+            e.printStackTrace();
+            return false;
+        }  
     }
     
 }
