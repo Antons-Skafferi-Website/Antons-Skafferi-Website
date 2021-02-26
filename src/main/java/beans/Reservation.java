@@ -7,9 +7,16 @@ package beans;
 
 import classes.Database;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+//import java.util.Date;
+import java.sql.Date;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+
 
 /**
  *
@@ -21,11 +28,28 @@ public class Reservation implements Serializable{
     private final Database connection = new Database();
     
     private int numberOfGuests;
+    private int tableID;
     private String name;
-    private String date;
+    private Date date;
     private String phone;
     private String time;
     private String email;
+    private String comment;
+
+    public void setTableID(int tableID) {
+        this.tableID = tableID;
+    }
+
+    public int getTableID() {
+        return tableID;
+    }
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getComment() {
+        return comment;
+    }
 
     public void setNumberOfGuests(int numberOfGuests) {
         this.numberOfGuests = numberOfGuests;
@@ -35,7 +59,7 @@ public class Reservation implements Serializable{
         this.name = name;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -59,7 +83,7 @@ public class Reservation implements Serializable{
         return name;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -75,14 +99,18 @@ public class Reservation implements Serializable{
         return email;
     }
     
-    public String makeReservation() {
-       if(connection.makeReservation(numberOfGuests, name, email))
+    public void makeReservation() throws ParseException {
+       if(connection.makeReservation(numberOfGuests, name, email, date, time, comment))
        {
-           return "Bokning genomförd!";
+            FacesContext.getCurrentInstance().addMessage(
+                null,
+                new FacesMessage("Bokning genomförd!","The reservation was made successfully"));
        }
        else
        {
-           return "Något gick fel, försök igen.";
+            FacesContext.getCurrentInstance().addMessage(
+                null,
+                new FacesMessage("Något gick fel, försök igen","something went wrong during the reservation to the database"));
        }
         
     }
