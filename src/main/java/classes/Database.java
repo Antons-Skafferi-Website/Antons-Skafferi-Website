@@ -68,27 +68,29 @@ public class Database {
         return list;
     }
     
-    public boolean makeReservation(int numberOfGuests, String name, String email, Date date, String time, String comment) throws ParseException {
-        System.out.println("name: " + name);
-        HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+    public boolean makeReservation(int numberOfGuests, String name, String email, String time, String comment) throws ParseException {
+        HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest(); //http request
         String temp = request.getParameter("date");
-        System.out.println("date: " + temp);
+        if(temp.equals("")) //check is the date is set
+            return false;
+        if(comment.equals("")) //check if a comment is made, otherwise set it to null
+            comment = null;
         
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         java.util.Date parsed = format.parse(temp);
         java.sql.Date sqlDate = new java.sql.Date(parsed.getTime());
-        System.out.println("datesql: " + sqlDate);
         try (Connection connection = DriverManager.getConnection(dbURL, user, pw);
             PreparedStatement ps = connection.prepareCall(insertReservation);
         ){
-            
+            //setting the arguments for the prepared statement
             ps.setString(1, name);
             ps.setString(2, email);
             ps.setInt(3, numberOfGuests);
             ps.setDate(4, sqlDate);
             ps.setString(5, time);
             ps.setString(6, comment);
-            ps.execute();
+            
+            ps.execute(); //execute the statement
             return true;
         }catch(SQLException e) {
             e.printStackTrace();
