@@ -10,7 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="/css/default.css"/>
         <h:outputStylesheet name="/css/cssLayout.css"/>
-        <title>Boka Bord</title>
+        <title>Boka Bord</title> 
     </h:head>
 
     <h:body>
@@ -45,13 +45,13 @@
                             <h:selectOneMenu   id="time"
                                 required="true"
                                 value="#{reservationBean.time}">
-                                <f:selectItem itemValue="1700" itemLabel="17.00"/>       <!-- lägga till beans i itemvalue och item label för att visa vilka tider som finns-->
-                                <f:selectItem itemValue="1730" itemLabel="17.30"/>
-                                <f:selectItem itemValue="1800" itemLabel="18.00"/>
-                                <f:selectItem itemValue="1830" itemLabel="18.30"/>
-                                <f:selectItem itemValue="1900" itemLabel="19.00"/>
-                                <f:selectItem itemValue="1930" itemLabel="19.30"/>
-                                <f:selectItem itemValue="2000" itemLabel="20.00"/>
+                                <f:selectItem itemValue="17:00" itemLabel="17.00"/>       <!-- lägga till beans i itemvalue och item label för att visa vilka tider som finns-->
+                                <f:selectItem itemValue="17:30" itemLabel="17.30"/>
+                                <f:selectItem itemValue="18:00" itemLabel="18.00"/>
+                                <f:selectItem itemValue="18:30" itemLabel="18.30"/>
+                                <f:selectItem itemValue="19:00" itemLabel="19.00"/>
+                                <f:selectItem itemValue="19:30" itemLabel="19.30"/>
+                                <f:selectItem itemValue="20:00" itemLabel="20.00"/>
                             </h:selectOneMenu>
                         </div>
                         <div name="mail">
