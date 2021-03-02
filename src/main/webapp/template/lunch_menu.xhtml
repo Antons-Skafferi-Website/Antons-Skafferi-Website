@@ -23,10 +23,10 @@
             </ul>
         </div>
         
-        <div class="foodContent">
+        <div class="foodContent" id="lunch_menu" >
             
         <!--Lunch menu tab-->
-        <div id="lunch_menu" class="sub_menu">
+        <div class="sub_menu">
             
             <h1>Lunchmeny för veckan</h1>
             
@@ -102,10 +102,11 @@
    
         </div>
         
-        
-        
+        </div>
+        <div class="a_la_carte" id="a_la_carte">
+            
         <!--Á la carte menu tab-->
-        <div id="a_la_carte" class="sub_menu2">
+        <div  class="a_la_carte_body">
                 
             <h1>Menyer</h1>
             
@@ -150,7 +151,7 @@
                         </h:dataTable>
                     </ul>
             </div>
-                                
+                           
         </div>
         
         </div>
@@ -162,6 +163,7 @@
                 $("#lunch_menu").show();
                 $("#a_la_carte").hide();
                 
+                
                 $("#lunch_button").click(function(){
                     $("#a_la_carte").hide();
                     $("#lunch_menu").show();
@@ -171,7 +173,7 @@
                     $("#a_la_carte").show();
                     $("#lunch_menu").hide();
                 });
-                
+
             });
  
         </script>

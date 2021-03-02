@@ -309,11 +309,7 @@ input {
     width: auto;
     height: auto;
 }
-.sub_menu2 div{
-    margin-left: 5%;
-    margin-right: 5%;
-    
-}
+
 .dish_item{
     text-align: left;
 }
@@ -341,6 +337,41 @@ input {
     margin-right: auto;
     border: 5px double;
     border-color: white;
+}
+
+.a_la_carte{
+    padding: 1px;
+    background-color: #FFFAF2;
+    transform-style: preserve-3d;  
+    position:relative;
+    border: 1px solid #a55d07;
+    border-radius: 5em;
+    width: 65em;
+    height: 90em;
+    margin: auto;
+    color: rgb(120,50,5);
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(110,80,20,.4),
+              inset 0 -2px 5px 1px rgba(139,66,8,1),
+              inset 0 -1px 1px 3px rgba(250,227,133,1); 
+  
+}
+
+.a_la_carte_body{                       
+    background-image: url("../../image/BorderFrameGold.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+
+}
+.a_la_carte_body h1{
+    margin: 0;
+    text-align: center;
+}
+.a_la_carte_body div{
+    margin-left: 5%;
+    margin-right: 5%;
+    
 }
 .in_line {
     display: inline-block;
