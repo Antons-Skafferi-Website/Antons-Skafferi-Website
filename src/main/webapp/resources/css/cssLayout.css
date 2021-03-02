@@ -309,6 +309,11 @@ input {
     width: auto;
     height: auto;
 }
+.sub_menu2 div{
+    margin-left: 5%;
+    margin-right: 5%;
+    
+}
 .dish_item{
     text-align: left;
 }
