@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 //import java.util.Date;
+import java.time.LocalDate; 
 import java.sql.Date;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.context.SessionScoped;
@@ -30,11 +31,37 @@ public class Reservation implements Serializable{
     private int numberOfGuests;
     private int tableID;
     private String name;
-    private Date date;
+    private LocalDate date;
     private String phone;
     private String time;
     private String email;
     private String comment;
+    private LocalDate min;
+    private LocalDate max;
+
+    public void setMax(LocalDate max) {
+        this.max = max;
+    }
+
+    public LocalDate getMax() {
+        return max;
+    }
+
+    public void setMin(LocalDate min) {
+        this.min = min;
+    }
+
+    public LocalDate getMin() {
+        return min;
+    }
+    
+    public Reservation() {
+        LocalDate todaysDate = LocalDate.now(); // get todays date
+        date = todaysDate;
+        LocalDate temp = date;
+        max = temp.plusDays(30); //max reservation date 30 days ahead
+        min = date; //min reservation date as of todays date
+    }
 
     public void setTableID(int tableID) {
         this.tableID = tableID;
@@ -59,7 +86,7 @@ public class Reservation implements Serializable{
         this.name = name;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -83,7 +110,7 @@ public class Reservation implements Serializable{
         return name;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
