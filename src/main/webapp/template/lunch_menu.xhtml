@@ -16,7 +16,7 @@
     <h:body>
         
         <!--Sub menu-->
-        <div id="menu_bar" class="topnav">
+        <div id="menu_bar2" class="topnav">
             <ul id="header_menu">
                 <li><a id="lunch_button">DAGENS LUNCH</a></li>
                 <li><a id="carte_button">Á LA CARTE</a></li>
@@ -26,7 +26,7 @@
         <div class="foodContent" id="lunch_menu" >
             
         <!--Lunch menu tab-->
-        <div class="sub_menu">
+        <div class="sub_menu" >
             
             <h1>Lunchmeny för veckan</h1>
             
@@ -108,9 +108,9 @@
         <!--Á la carte menu tab-->
         <div  class="a_la_carte_body">
                 
-            <h1>Menyer</h1>
-            
-            <div class="dish_list in_line">
+            <h1>Menyer</h1><br/><br/>
+            <div class="containerMeny">
+                <div class="dish_list in_line" id="leftSideMeny">
                 <h2>Förrätt</h2>
                     <ul>
                         <h:dataTable value="#{alacarteBean.starters}" var="dish">
@@ -121,24 +121,7 @@
                                 </div>
                             </h:column>
                         </h:dataTable>
-                    </ul>
-            </div>
-            
-            <div class="dish_list in_line">
-                <h2>Á La Carte</h2>
-                    <ul>
-                        <h:dataTable value="#{alacarteBean.mainDishes}" var="dish">
-                            <h:column>
-                                <div class="dish_item">
-                                <h3>#{dish.name}</h3>   
-                                <p>#{dish.description}   #{dish.price}:-</p>
-                                </div>
-                            </h:column>
-                        </h:dataTable>
-                    </ul>
-            </div>
-            
-            <div class="dish_list in_line">
+                    </ul><br/><br/>
                 <h2>Efterrätt</h2>
                     <ul>
                         <h:dataTable value="#{alacarteBean.desserts}" var="dish">
@@ -151,6 +134,22 @@
                         </h:dataTable>
                     </ul>
             </div>
+
+            <div class="dish_list in_line" id="rightSideMeny">
+                <h2>Á La Carte</h2>
+                    <ul>
+                        <h:dataTable value="#{alacarteBean.mainDishes}" var="dish">
+                            <h:column>
+                                <div class="dish_item">
+                                <h3>#{dish.name}</h3>   
+                                <p>#{dish.description}   #{dish.price}:-</p>
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                    </ul>
+            </div>
+            </div>  
+            
                            
         </div>
         
