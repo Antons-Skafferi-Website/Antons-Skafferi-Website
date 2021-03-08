@@ -127,7 +127,7 @@ public class Reservation implements Serializable{
     }
     
     public void makeReservation() throws ParseException {
-       if(connection.makeReservation(numberOfGuests, name, email, time, comment))
+       if(connection.makeReservation(numberOfGuests, name, email, time, phone, comment))
        {
             FacesContext.getCurrentInstance().addMessage(
                 null,

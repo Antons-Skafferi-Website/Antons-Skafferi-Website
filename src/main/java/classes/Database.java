@@ -37,8 +37,8 @@ public class Database {
     "WHERE SMHD.SUB_MENU_ID = ?";
     
     private String insertReservation = "INSERT INTO APP.RESERVATION " + 
-    "(CUSTOMER_NAME, CUSTOMER_EMAIL, CUSTOMER_COUNT, RESERVATION_DATE, RESERVATION_TIME, TABLE_ID, COMMENT)\n" +
-    "VALUES(?, ?, ?, ?, ?, 1, ?)";
+    "(CUSTOMER_NAME, CUSTOMER_EMAIL, CUSTOMER_COUNT, RESERVATION_DATE, RESERVATION_TIME, TABLE_ID, PHONE_NUMBER, COMMENT)\n" +
+    "VALUES(?, ?, ?, ?, ?, 1, ?, ?)";
     
     //int numberOfGuests, String name, String date,  String email
     public Database() {
@@ -68,7 +68,7 @@ public class Database {
         return list;
     }
     
-    public boolean makeReservation(int numberOfGuests, String name, String email, String time, String comment) throws ParseException {
+    public boolean makeReservation(int numberOfGuests, String name, String email, String time, String phone, String comment) throws ParseException {
         HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest(); //http request
         String temp = request.getParameter("date");
         if(temp.equals("")) //check is the date is set
@@ -88,7 +88,8 @@ public class Database {
             ps.setInt(3, numberOfGuests);
             ps.setDate(4, sqlDate);
             ps.setString(5, time);
-            ps.setString(6, comment);
+            ps.setString(6, phone);
+            ps.setString(7, comment);
             
             ps.execute(); //execute the statement
             return true;

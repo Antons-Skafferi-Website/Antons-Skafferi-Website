@@ -36,12 +36,12 @@
                             </h:selectOneMenu>
                         </div>
                         <div name="dateAndName">
-                            <h:inputText value="#{reservationBean.name}" id="name" pt:placeholder="namn"/> <!--man får sätta ett value="{nånbeans}" -->
+                            <h:inputText value="#{reservationBean.name}" id="name" pt:placeholder="namn" required="true"/> <!--man får sätta ett value="{nånbeans}" -->
                             <input value="#{reservationBean.date}" type="date" id="date" name="date" min="#{reservationBean.min}" max="#{reservationBean.max}" ></input> <!--  lägg till min och max med dagens datum; detta får man suga ner till ett new Date objekt som sedan lägger till det i bokingen-->
     
                         </div>
                         <div name="phoneAndTime">
-                            <h:inputText id="phone" pt:placeholder="telefon-nr"/> <!--man får sätta ett value="{nånbeans}" -->
+                            <h:inputText value="#{reservationBean.phone}" id="phone" pt:placeholder="telefon-nr" required="true"/> <!--man får sätta ett value="{nånbeans}" -->
                             <h:selectOneMenu   id="time"
                                 required="true"
                                 value="#{reservationBean.time}">
@@ -55,7 +55,7 @@
                             </h:selectOneMenu>
                         </div>
                         <div name="mail">
-                            <h:inputText value="#{reservationBean.email}" id="email" pt:placeholder="e-post" size="30" /> <!--man får sätta ett value="{nånbeans}" -->
+                            <h:inputText value="#{reservationBean.email}" id="email" pt:placeholder="e-post" size="30" required="true"/> <!--man får sätta ett value="{nånbeans}" -->
                         </div>
                         <div name="comment">
                             <h:inputText value="#{reservationBean.comment}" id="comment" pt:placeholder="Önskemål"  size="50"/> 
