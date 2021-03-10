@@ -16,17 +16,17 @@
     <h:body>
         
         <!--Sub menu-->
-        <div id="menu_bar" class="topnav">
+        <div id="menu_bar2" class="topnav">
             <ul id="header_menu">
                 <li><a id="lunch_button">DAGENS LUNCH</a></li>
                 <li><a id="carte_button">Á LA CARTE</a></li>
             </ul>
         </div>
         
-        <div class="foodContent">
+        <div class="foodContent" id="lunch_menu" >
             
         <!--Lunch menu tab-->
-        <div id="lunch_menu" class="sub_menu">
+        <div class="sub_menu" >
             
             <h1>Lunchmeny för veckan</h1>
             
@@ -102,14 +102,15 @@
    
         </div>
         
-        
-        
-        <!--Á la carte menu tab-->
-        <div id="a_la_carte" class="sub_menu2">
-                
-            <h1>Menyer</h1>
+        </div>
+        <div class="a_la_carte" id="a_la_carte">
             
-            <div class="dish_list in_line">
+        <!--Á la carte menu tab-->
+        <div  class="a_la_carte_body">
+                
+            <h1>Menyer</h1><br/><br/>
+            <div class="containerMeny">
+                <div class="dish_list in_line" id="leftSideMeny">
                 <h2>Förrätt</h2>
                     <ul>
                         <h:dataTable value="#{alacarteBean.starters}" var="dish">
@@ -120,24 +121,7 @@
                                 </div>
                             </h:column>
                         </h:dataTable>
-                    </ul>
-            </div>
-            
-            <div class="dish_list in_line">
-                <h2>Á La Carte</h2>
-                    <ul>
-                        <h:dataTable value="#{alacarteBean.mainDishes}" var="dish">
-                            <h:column>
-                                <div class="dish_item">
-                                <h3>#{dish.name}</h3>   
-                                <p>#{dish.description}   #{dish.price}:-</p>
-                                </div>
-                            </h:column>
-                        </h:dataTable>
-                    </ul>
-            </div>
-            
-            <div class="dish_list in_line">
+                    </ul><br/><br/>
                 <h2>Efterrätt</h2>
                     <ul>
                         <h:dataTable value="#{alacarteBean.desserts}" var="dish">
@@ -150,7 +134,23 @@
                         </h:dataTable>
                     </ul>
             </div>
-                                
+
+            <div class="dish_list in_line" id="rightSideMeny">
+                <h2>Á La Carte</h2>
+                    <ul>
+                        <h:dataTable value="#{alacarteBean.mainDishes}" var="dish">
+                            <h:column>
+                                <div class="dish_item">
+                                <h3>#{dish.name}</h3>   
+                                <p>#{dish.description}   #{dish.price}:-</p>
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                    </ul>
+            </div>
+            </div>  
+            
+                           
         </div>
         
         </div>
@@ -162,6 +162,7 @@
                 $("#lunch_menu").show();
                 $("#a_la_carte").hide();
                 
+                
                 $("#lunch_button").click(function(){
                     $("#a_la_carte").hide();
                     $("#lunch_menu").show();
@@ -171,7 +172,7 @@
                     $("#a_la_carte").show();
                     $("#lunch_menu").hide();
                 });
-                
+
             });
  
         </script>
