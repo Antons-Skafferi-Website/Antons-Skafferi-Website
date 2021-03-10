@@ -7,6 +7,7 @@ package classes;
 
 
 import beans.Dish;
+import beans.Event;
 import java.sql.Connection;
 import java.sql.Date;
 //import java.time.LocalDate;
@@ -39,6 +40,8 @@ public class Database {
     private String insertReservation = "INSERT INTO APP.RESERVATION " + 
     "(CUSTOMER_NAME, CUSTOMER_EMAIL, CUSTOMER_COUNT, RESERVATION_DATE, RESERVATION_TIME, TABLE_ID, PHONE_NUMBER, COMMENT)\n" +
     "VALUES(?, ?, ?, ?, ?, 1, ?, ?)";
+    
+    private String getEvent = "SELECT EVENT_NAME, EVENT_DESC, EVENT_DATE, EVENT_TIME FROM APP.EVENTS WHERE EVENT_ID = 1";  //eftersom det bara är ett event i databasen så väljer vi alltid samma
     
     //int numberOfGuests, String name, String date,  String email
     public Database() {
@@ -97,6 +100,26 @@ public class Database {
             e.printStackTrace();
             return false;
         }  
+    }
+
+    public List<Event> getEvents() {
+        List<Event> list = new ArrayList<>();
+        
+        try (Connection connection = DriverManager.getConnection(dbURL, user, pw);
+             PreparedStatement statement = connection.prepareCall(getEvent);
+        ){
+            
+            
+            ResultSet rs = statement.executeQuery();
+            
+            while(rs.next()) 
+                list.add(new Event(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+            
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return list;
     }
     
 }

@@ -277,9 +277,9 @@ input {
     border-style: double;
     border-color: white;
 }
-.greenBox2 a {
-    font-size: 25px;
-    color: white;
+
+.greenBox2 h1 {
+    font-size: 35px;
 }
 .greenBox2 a:hover {
     font-size: 25px;
