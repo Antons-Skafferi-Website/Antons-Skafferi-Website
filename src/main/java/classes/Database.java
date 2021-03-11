@@ -41,7 +41,7 @@ public class Database {
     "(CUSTOMER_NAME, CUSTOMER_EMAIL, CUSTOMER_COUNT, RESERVATION_DATE, RESERVATION_TIME, TABLE_ID, PHONE_NUMBER, COMMENT)\n" +
     "VALUES(?, ?, ?, ?, ?, 1, ?, ?)";
     
-    private String getEvent = "SELECT EVENT_NAME, EVENT_DESC, EVENT_DATE, EVENT_TIME FROM APP.EVENTS WHERE EVENT_ID = 1";  //eftersom det bara är ett event i databasen så väljer vi alltid samma
+    private String getEvent = "SELECT EVENT_NAME, EVENT_DESC, EVENT_DATE, EVENT_TIME, IMAGE_URL FROM APP.EVENTS WHERE EVENT_ID = 1";  //eftersom det bara är ett event i databasen så väljer vi alltid samma
     
     //int numberOfGuests, String name, String date,  String email
     public Database() {
@@ -113,7 +113,7 @@ public class Database {
             ResultSet rs = statement.executeQuery();
             
             while(rs.next()) 
-                list.add(new Event(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+                list.add(new Event(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
             
         }catch(SQLException e) {
             e.printStackTrace();

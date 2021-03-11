@@ -23,6 +23,7 @@ public class Event implements Serializable {
     private String eventDesc;
     private String eventDate;
     private String eventTime;
+    private String eventURL;
     /**
      * Creates a new instance of Event
      */
@@ -30,11 +31,12 @@ public class Event implements Serializable {
         connection = new Database();
     }
     
-    public Event(String name, String desc, String date, String time) {
+    public Event(String name, String desc, String date, String time, String URL) {
         this.eventName = name;
         this.eventDesc = desc;
         this.eventDate = date;
         this.eventTime = time;
+        this.eventURL = URL;
     }
     
     public String getName() {
@@ -49,6 +51,9 @@ public class Event implements Serializable {
     }
     public String getTime() {
         return eventTime;
+    }
+    public String getURL() {
+        return eventURL;
     }
     
     public List<Event> getCurrentEvent(){
