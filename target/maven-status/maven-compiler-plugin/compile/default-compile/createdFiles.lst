@@ -1,8 +1,14 @@
-classes\Database.class
-beans\Reservation.class
 beans\Event.class
 beans\Alacarte.class
-com\antonsskafferi\webserver\resources\JavaEE8Resource.class
+classes\DishDs.class
 com\antonsskafferi\webserver\JAXRSConfiguration.class
 beans\Lunch.class
+interfaces\BookingDao.class
+classes\Database.class
+beans\Reservation.class
+interfaces\EventDao.class
+interfaces\DishDao.class
+classes\BookingDs.class
+classes\EventDs.class
+com\antonsskafferi\webserver\resources\JavaEE8Resource.class
 beans\Dish.class

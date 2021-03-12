@@ -5,14 +5,10 @@
  */
 package beans;
 
-import classes.Database;
+import classes.BookingDs;
 import java.io.Serializable;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-//import java.util.Date;
 import java.time.LocalDate;
-import java.sql.Date;
-import javax.enterprise.context.Dependent;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -26,7 +22,7 @@ import javax.inject.Named;
 @SessionScoped
 public class Reservation implements Serializable {
 
-    private final Database connection = new Database();
+    private final BookingDs ds = new BookingDs();
 
     private int numberOfGuests;
     private int tableID;
@@ -128,7 +124,7 @@ public class Reservation implements Serializable {
     }
 
     public void makeReservation() throws ParseException {
-        if (connection.makeReservation(numberOfGuests, name, email, time, phone, comment)) {
+        if (ds.makeReservation(numberOfGuests, name, email, time, phone, comment)) {
             FacesContext.getCurrentInstance().addMessage(
                     null,
                     new FacesMessage("Bokning genomförd!", "The reservation was made successfully"));

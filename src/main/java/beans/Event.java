@@ -5,7 +5,7 @@
  */
 package beans;
 
-import classes.Database;
+import classes.EventDs;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Named;
@@ -24,12 +24,9 @@ public class Event implements Serializable {
     private String eventDate;
     private String eventTime;
     private String eventURL;
-    
-    private final Database connection = new Database();
 
-    /**
-     * Creates a new instance of Event
-     */
+    private final EventDs ds = new EventDs();
+
     public Event() {
     }
 
@@ -62,7 +59,7 @@ public class Event implements Serializable {
     }
 
     public List<Event> getCurrentEvent() {
-        return connection.getEvents();
+        return ds.getEvents();
     }
 
 }

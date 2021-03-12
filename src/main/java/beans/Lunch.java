@@ -5,7 +5,7 @@
  */
 package beans;
 
-import classes.Database;
+import classes.DishDs;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Collections;
@@ -21,29 +21,29 @@ import javax.inject.Named;
 @Dependent
 public class Lunch implements Serializable {
 
-    private final Database connection = new Database();
+    private final DishDs ds = new DishDs();
 
     public Lunch() {
     }
 
     public List<Dish> getMondayLunch() {
-        return connection.getSubMenu(1);
+        return ds.getSubMenu(1);
     }
 
     public List<Dish> getTuesdayLunch() {
-        return connection.getSubMenu(2);
+        return ds.getSubMenu(2);
     }
 
     public List<Dish> getWednesdayLunch() {
-        return connection.getSubMenu(3);
+        return ds.getSubMenu(3);
     }
 
     public List<Dish> getThursdayLunch() {
-        return connection.getSubMenu(4);
+        return ds.getSubMenu(4);
     }
 
     public List<Dish> getFridayLunch() {
-        return connection.getSubMenu(5);
+        return ds.getSubMenu(5);
     }
 
     public List<Dish> getTodaysLunch() {

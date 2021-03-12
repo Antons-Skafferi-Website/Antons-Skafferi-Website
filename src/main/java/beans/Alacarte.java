@@ -5,7 +5,7 @@
  */
 package beans;
 
-import classes.Database;
+import classes.DishDs;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
@@ -19,20 +19,20 @@ import javax.inject.Named;
 @SessionScoped
 public class Alacarte implements Serializable {
 
-    private final Database connection = new Database();
+    private final DishDs ds = new DishDs();
 
     public Alacarte() {
     }
 
     public List<Dish> getStarters() {
-        return connection.getSubMenu(6);
+        return ds.getSubMenu(6);
     }
 
     public List<Dish> getMainDishes() {
-        return connection.getSubMenu(7);
+        return ds.getSubMenu(7);
     }
 
     public List<Dish> getDesserts() {
-        return connection.getSubMenu(8);
+        return ds.getSubMenu(8);
     }
 }
