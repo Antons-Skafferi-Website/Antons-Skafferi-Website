@@ -1,5 +1,6 @@
 classes\Database.class
 beans\Reservation.class
+beans\Event.class
 beans\Alacarte.class
 com\antonsskafferi\webserver\resources\JavaEE8Resource.class
 com\antonsskafferi\webserver\JAXRSConfiguration.class

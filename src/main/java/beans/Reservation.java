@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 //import java.util.Date;
-import java.time.LocalDate; 
+import java.time.LocalDate;
 import java.sql.Date;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.context.SessionScoped;
@@ -18,16 +18,16 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
-
 /**
  *
  * @author Felix
  */
 @Named(value = "reservationBean")
 @SessionScoped
-public class Reservation implements Serializable{
+public class Reservation implements Serializable {
+
     private final Database connection = new Database();
-    
+
     private int numberOfGuests;
     private int tableID;
     private String name;
@@ -54,7 +54,7 @@ public class Reservation implements Serializable{
     public LocalDate getMin() {
         return min;
     }
-    
+
     public Reservation() {
         LocalDate todaysDate = LocalDate.now(); // get todays date
         date = todaysDate;
@@ -70,6 +70,7 @@ public class Reservation implements Serializable{
     public int getTableID() {
         return tableID;
     }
+
     public void setComment(String comment) {
         this.comment = comment;
     }
@@ -125,23 +126,18 @@ public class Reservation implements Serializable{
     public String getEmail() {
         return email;
     }
-    
+
     public void makeReservation() throws ParseException {
-       if(connection.makeReservation(numberOfGuests, name, email, time, phone, comment))
-       {
+        if (connection.makeReservation(numberOfGuests, name, email, time, phone, comment)) {
             FacesContext.getCurrentInstance().addMessage(
-                null,
-                new FacesMessage("Bokning genomförd!","The reservation was made successfully"));
-       }
-       else
-       {
+                    null,
+                    new FacesMessage("Bokning genomförd!", "The reservation was made successfully"));
+        } else {
             FacesContext.getCurrentInstance().addMessage(
-                null,
-                new FacesMessage("Något gick fel, försök igen","something went wrong during the reservation to the database"));
-       }
-        
+                    null,
+                    new FacesMessage("Något gick fel, försök igen", "something went wrong during the reservation to the database"));
+        }
+
     }
 
-    
-    
 }

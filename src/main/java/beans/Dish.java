@@ -18,21 +18,22 @@ import javax.inject.Named;
 @Named(value = "dishBean")
 @SessionScoped
 public class Dish implements Serializable {
-    
+
     private long dishId;
     private String name;
     private String description;
     private double price;
-    
-    public Dish() {}
-    
+
+    public Dish() {
+    }
+
     public Dish(long dishId, String name, String description, double price) {
         this.dishId = dishId;
         this.name = name;
         this.description = description;
         this.price = price;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -47,5 +48,5 @@ public class Dish implements Serializable {
 
     public long getDishId() {
         return dishId;
-    }    
+    }
 }

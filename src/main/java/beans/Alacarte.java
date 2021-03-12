@@ -18,20 +18,20 @@ import javax.inject.Named;
 @Named(value = "alacarteBean")
 @SessionScoped
 public class Alacarte implements Serializable {
-    
-    private final Database connection;
+
+    private final Database connection = new Database();
 
     public Alacarte() {
-        this.connection = new Database();
     }
-    
+
     public List<Dish> getStarters() {
         return connection.getSubMenu(6);
     }
-    
+
     public List<Dish> getMainDishes() {
         return connection.getSubMenu(7);
     }
+
     public List<Dish> getDesserts() {
         return connection.getSubMenu(8);
     }

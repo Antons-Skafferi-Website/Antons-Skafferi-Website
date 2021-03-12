@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="/css/default.css"/>
+        <h:outputStylesheet name="/css/cssLayout.css"/>
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <title>Index</title>
+    </h:head>
+
+    <h:body>
+
+        <div name="index" class="index">
+
+            <div name="lunchMeny" class="greenBox1">
+
+                <h1>Dagens Lunch - #{lunchBean.todaysWeekday}</h1>
+                <h:dataTable value="#{lunchBean.todaysLunch}" var="dish">
+                    <h:column>
+                        <div class="food_item">
+                            <h3>#{dish.name}</h3>
+                            <p>#{dish.description}</p>
+                            <p>#{dish.price}</p>
+                        </div>
+                    </h:column>
+                </h:dataTable>
+
+                <br/>
+                <h:outputLink value="menu.xhtml">Se meny för hela veckan</h:outputLink>
+
+            </div>
+
+
+            <div name="evenemangKort" class="greenBox2">
+                <h:dataTable value="#{eventBean.currentEvent}" var="event">
+                    <h:column>
+                        <h1>#{event.name}</h1>
+                        <p>#{event.date}</p><br/>
+                        <p>#{event.description}</p>
+                        <p>Tid: #{event.time}</p>
+                        <img src="#{event.URL}" width="400" height="300"/>
+                    </h:column>
+                </h:dataTable>
+            </div>
+
+        </div>
+
+    </h:body>
+
+</html>

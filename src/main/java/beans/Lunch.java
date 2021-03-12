@@ -13,7 +13,6 @@ import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
 
-
 /**
  *
  * @author jonas
@@ -21,36 +20,37 @@ import javax.inject.Named;
 @Named(value = "lunchBean")
 @Dependent
 public class Lunch implements Serializable {
-    
+
     private final Database connection = new Database();
 
-    public Lunch() {}
-    
+    public Lunch() {
+    }
+
     public List<Dish> getMondayLunch() {
         return connection.getSubMenu(1);
     }
-    
+
     public List<Dish> getTuesdayLunch() {
         return connection.getSubMenu(2);
     }
-    
+
     public List<Dish> getWednesdayLunch() {
         return connection.getSubMenu(3);
     }
-    
+
     public List<Dish> getThursdayLunch() {
         return connection.getSubMenu(4);
     }
-    
+
     public List<Dish> getFridayLunch() {
         return connection.getSubMenu(5);
     }
-    
+
     public List<Dish> getTodaysLunch() {
-        
+
         int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
-        
-        switch(day) {
+
+        switch (day) {
             case Calendar.MONDAY:
                 return getMondayLunch();
             case Calendar.TUESDAY:
@@ -62,15 +62,15 @@ public class Lunch implements Serializable {
             case Calendar.FRIDAY:
                 return getFridayLunch();
         }
-        
+
         return Collections.emptyList();
     }
-    
+
     public String getTodaysWeekday() {
-        
+
         int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
-        
-        switch(day) {
+
+        switch (day) {
             case Calendar.MONDAY:
                 return "Måndag";
             case Calendar.TUESDAY:
@@ -82,7 +82,7 @@ public class Lunch implements Serializable {
             case Calendar.FRIDAY:
                 return "Fredag";
         }
-        
+
         return "Kommer på måndag";
     }
 }
