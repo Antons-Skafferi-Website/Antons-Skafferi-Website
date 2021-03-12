@@ -5,7 +5,7 @@
  */
 package classes;
 
-import beans.Event;
+import beans.EventController;
 import interfaces.EventDao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Event;
 
 /**
  *
@@ -31,7 +32,7 @@ public class EventDs implements EventDao {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
-                list.add(new Event(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
+                list.add(new Event(rs.getString(1), rs.getString(2), rs.getString(3)));
             }
 
         } catch (SQLException e) {

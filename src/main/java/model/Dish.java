@@ -3,19 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package beans;
-
-import java.io.Serializable;
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
+package model;
 
 /**
  *
  * @author jonas
  */
-@Named(value = "dishBean")
-@SessionScoped
-public class Dish implements Serializable {
+public class Dish {
 
     private long dishId;
     private String name;
@@ -32,19 +26,19 @@ public class Dish implements Serializable {
         this.price = price;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public String getDescription() {
         return description;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
     public long getDishId() {
         return dishId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
     }
 }

@@ -18,9 +18,9 @@ import javax.inject.Named;
  *
  * @author Felix
  */
-@Named(value = "reservationBean")
+@Named(value = "bookingBean")
 @SessionScoped
-public class Reservation implements Serializable {
+public class BookingController implements Serializable {
 
     private final BookingDs ds = new BookingDs();
 
@@ -35,6 +35,14 @@ public class Reservation implements Serializable {
     private LocalDate min;
     private LocalDate max;
 
+    public BookingController() {
+        LocalDate todaysDate = LocalDate.now(); // get todays date
+        date = todaysDate;
+        LocalDate temp = date;
+        max = temp.plusDays(30); //max reservation date 30 days ahead
+        min = date; //min reservation date as of todays date
+    }
+    
     public void setMax(LocalDate max) {
         this.max = max;
     }
@@ -49,14 +57,6 @@ public class Reservation implements Serializable {
 
     public LocalDate getMin() {
         return min;
-    }
-
-    public Reservation() {
-        LocalDate todaysDate = LocalDate.now(); // get todays date
-        date = todaysDate;
-        LocalDate temp = date;
-        max = temp.plusDays(30); //max reservation date 30 days ahead
-        min = date; //min reservation date as of todays date
     }
 
     public void setTableID(int tableID) {

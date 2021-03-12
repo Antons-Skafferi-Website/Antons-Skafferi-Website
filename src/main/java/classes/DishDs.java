@@ -5,7 +5,6 @@
  */
 package classes;
 
-import beans.Dish;
 import interfaces.DishDao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Dish;
 
 /**
  *

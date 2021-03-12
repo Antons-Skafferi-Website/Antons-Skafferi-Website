@@ -42,8 +42,8 @@ public class BookingDs implements BookingDao {
                 comment = null;
             
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            Date parsed = (Date) format.parse(temp);
-            Date sqlDate = new java.sql.Date(parsed.getTime());
+            java.util.Date parsed = format.parse(temp);
+            java.sql.Date sqlDate = new java.sql.Date(parsed.getTime());
 
             try (Connection connection = Database.getConnection();
                     PreparedStatement ps = connection.prepareCall(insertReservation);) {

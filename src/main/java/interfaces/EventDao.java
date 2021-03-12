@@ -5,8 +5,9 @@
  */
 package interfaces;
 
-import beans.Event;
+import beans.EventController;
 import java.util.List;
+import model.Event;
 
 /**
  *
