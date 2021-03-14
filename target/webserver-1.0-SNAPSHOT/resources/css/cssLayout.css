@@ -302,7 +302,6 @@ input {
 .index {
     width: auto;
     height: auto;
-    background-color: red;
     display: flex;
     margin-top: 2%;
 }
