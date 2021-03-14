@@ -25,8 +25,8 @@ public class EventController implements Serializable {
     public EventController() {
     }
     
-    public List<Event> getCurrentEvent() {
-        return ds.getEvents();
+    public Event getCommingEvent() {
+        return ds.getEvent();
     }
 
 }

@@ -300,7 +300,9 @@ input {
 }
 
 .index {
-    width: 100%;
+    width: auto;
+    height: auto;
+    background-color: red;
     display: flex;
     margin-top: 2%;
 }
@@ -387,6 +389,63 @@ input {
     padding-left: 20%;
     
 }
+
+
+.event_item {
+    height: auto;
+    width: auto;
+}
+
+.event_item img{
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+    border-radius: 2em;
+    box-shadow: 5px 10px 18px black;
+}
+
+.event_content {
+    width: auto;
+    height: auto;
+    margin-left: 10%;
+    background: rgba(47, 82, 52, 0.98);
+    padding: 2%;
+    color: white;
+    border-radius: 10%;
+    border-style: double;
+    border-color: white;
+}
+
+.event_content div {
+    padding-right: 3%;
+}
+
+.index_content h1 {
+    font-size: 30px;
+}
+.index_content a {
+    font-size: 20px;
+    color: white;
+}
+.index_content a:hover {
+    color: white;
+    text-decoration: underline;
+}
+.index_content {
+    width: 30%;
+    height: auto;
+    margin-left: 10%;
+    background: rgba(47, 82, 52, 0.98);
+    padding: 2%;
+    color: white;
+    border-radius: 10%;
+    border-style: double;
+    border-color: white;
+}
+
+
+
 .containerMeny div h2{
    font-size: 25px;
 }

@@ -5,102 +5,59 @@
  */
 package model;
 
+import java.time.LocalDate;
+
 /**
  *
- * @author zered
+ * @author jonas
  */
 public class Event {
 
-    private long selectedEventId;
     private String name;
     private String description;
-    private int year;
-    private int month;
-    private int day;
-    private int hour;
-    private int minute;
     private String imageUrl;
-    private String errorss;
+    private LocalDate date;
 
     public Event() {
     }
 
-    public Event(String name, String description, String imageUrl) {
+    public Event(String name, LocalDate date, String description, String imageUrl) {
         this.name = name;
+        this.date = date;
         this.description = description;
         this.imageUrl = imageUrl;
     }
 
+    public String getDate() {
+        return date.toString();
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+    
     public String getName() {
         return name;
     }
 
-    public void setName(String nName) {
-        name = nName;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int n) {
-        year = n;
-    }
-
-    public int getMonth() {
-        return month;
-    }
-
-    public void setMonth(int n) {
-        month = n;
-    }
-
-    public int getDay() {
-        return day;
-    }
-
-    public void setDay(int n) {
-        day = n;
-    }
-
-    public int getHour() {
-        return hour;
-    }
-
-    public void setHour(int n) {
-        hour = n;
-    }
-
-    public int getMinute() {
-        return minute;
-    }
-
-    public void setMinute(int n) {
-        minute = n;
+    public void setName(String name) {
+        name = name;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String nDesc) {
-        description = nDesc;
+    public void setDescription(String description) {
+        description = description;
     }
 
     public String getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(String nUrl) {
-        imageUrl = nUrl;
+    public void setImageUrl(String imageUrl) {
+        imageUrl = imageUrl;
     }
-
-    public void setSelectedEventId(long selectedEventId) {
-        this.selectedEventId = selectedEventId;
-    }
-
-    public long getSelectedEventId() {
-        return selectedEventId;
-    }
-
+    
 }

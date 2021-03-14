@@ -5,14 +5,13 @@
  */
 package classes;
 
-import beans.EventController;
 import interfaces.EventDao;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
 import model.Event;
 
 /**
@@ -21,25 +20,24 @@ import model.Event;
  */
 public class EventDs implements EventDao {
 
-    private String getEvent = "SELECT EVENT_NAME, EVENT_DESC, EVENT_DATE, EVENT_TIME, IMAGE_URL FROM APP.EVENTS WHERE EVENT_ID = 1";  //eftersom det bara är ett event i databasen så väljer vi alltid samma
+    private String getEvent = "SELECT EVENT_NAME, DESCRIPTION, IMG_URL, EVENT_DATE FROM APP.EVENT ";
 
-    public List<Event> getEvents() {
-        List<Event> list = new ArrayList<>();
+    @Override
+    public Event getEvent() {
 
-        try (Connection connection = Database.getConnection();
-                PreparedStatement statement = connection.prepareCall(getEvent);) {
+        try ( Connection connection = Database.getConnection();  PreparedStatement statement = connection.prepareCall(getEvent);) {
 
             ResultSet rs = statement.executeQuery();
 
-            while (rs.next()) {
-                list.add(new Event(rs.getString(1), rs.getString(2), rs.getString(3)));
+            if (rs.next()) {
+                return new Event(rs.getString(1), rs.getDate(4).toLocalDate(), rs.getString(2), rs.getString(3));
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return list;
+        return new Event("Error", LocalDate.now(), "Error", "Error");
     }
 
 }

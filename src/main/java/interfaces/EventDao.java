@@ -5,8 +5,6 @@
  */
 package interfaces;
 
-import beans.EventController;
-import java.util.List;
 import model.Event;
 
 /**
@@ -15,6 +13,6 @@ import model.Event;
  */
 public interface EventDao {
     
-    public List<Event> getEvents();
+    public Event getEvent();
 
 }
