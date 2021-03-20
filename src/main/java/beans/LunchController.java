@@ -12,10 +12,10 @@ import java.util.Collections;
 import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
-import model.Dish;
+import domain.Dish;
 
 /**
- *
+ * Controller class for lunch.
  * @author jonas
  */
 @Named(value = "lunchBean")
@@ -66,7 +66,7 @@ public class LunchController implements Serializable {
 
         return Collections.emptyList();
     }
-
+    
     public String getTodaysWeekday() {
 
         int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);

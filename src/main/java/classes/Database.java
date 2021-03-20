@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package classes;
 
 import java.sql.Connection;
@@ -10,7 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- *
+ * Class made to hold database properties and to create connections easy.
+ * The database properties, password, url etc can be changed without effect any other
+ * class that relies on this class to create connections.
  * @author jonas
  */
 public class Database {

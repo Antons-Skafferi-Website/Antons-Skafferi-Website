@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package beans;
 
 import classes.BookingDs;
@@ -15,7 +11,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
- *
+ * Controller class for when creating bookings.
  * @author Felix
  */
 @Named(value = "bookingBean")
@@ -123,6 +119,10 @@ public class BookingController implements Serializable {
         return email;
     }
 
+    /**
+     * Create a new booking and store it in the database.
+     * @throws ParseException If booking fails.
+     */
     public void makeReservation() throws ParseException {
         if (ds.makeReservation(numberOfGuests, name, email, time, phone, comment)) {
             FacesContext.getCurrentInstance().addMessage(
