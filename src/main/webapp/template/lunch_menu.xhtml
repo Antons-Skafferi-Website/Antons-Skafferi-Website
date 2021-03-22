@@ -29,8 +29,8 @@
         <div class="sub_menu" >
             
             <h1>Lunchmeny för veckan</h1>
-            
-            <div>
+            <!-- Listar rätter för respektive dag-->
+            <div> 
                 <div class="dish_list in_line">
                     <h2>Måndag</h2>
                     <ul>
@@ -105,7 +105,9 @@
         </div>
         <div class="a_la_carte" id="a_la_carte">
             
-        <!--Á la carte menu tab-->
+        <!-- Á la carte menu tab
+            listar rätterna egna delar där alacarte är till höger och förrätt/efterrätt är på vänstersida
+        -->
         <div  class="a_la_carte_body">
                 
             <h1>Menyer</h1><br/><br/>
@@ -158,16 +160,17 @@
         <script>
             
             $(document).ready(function() {
-                                
+                //visar lunchmeny per standard                
                 $("#lunch_menu").show();
                 $("#a_la_carte").hide();
                 
-                
+                    //funktion som byter vyn till lunchmeny
                 $("#lunch_button").click(function(){
                     $("#a_la_carte").hide();
                     $("#lunch_menu").show();
                 });
                 
+                    //funktion som byter vyn till alacarte menyn
                 $("#carte_button").click(function(){
                     $("#a_la_carte").show();
                     $("#lunch_menu").hide();

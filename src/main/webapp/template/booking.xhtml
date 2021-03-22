@@ -15,14 +15,14 @@
     </h:head>
 
     <h:body>
-
+        <!-- BOKNINGSSIDA -->
         <div class="bookContent">
 
             <h:form id="book">
                 <h1>Boka Bord</h1><br/><br/>
                 <div name="antal">
-                    <a>antal personer:</a>
-                    <h:selectOneMenu   id="antalPersoner"
+                    <a>antal personer:</a>  <!-- förvalt antal personer upp till 6st-->
+                    <h:selectOneMenu   id="antalPersoner"   
                                        required="true"
                                        value="#{bookingBean.numberOfGuests}">
                         <f:selectItem itemValue="1" itemLabel="1"/>    
@@ -33,7 +33,7 @@
                         <f:selectItem itemValue="6" itemLabel="6"/>
                     </h:selectOneMenu>
                 </div>
-                <div name="dateAndName">
+                <div name="dateAndName">    
                     <h:inputText value="#{bookingBean.name}" id="name" pt:placeholder="namn" required="true"/> <!--man får sätta ett value="{nånbeans}" -->
                     <input value="#{bookingBean.date}" type="date" id="date" name="date" min="#{bookingBean.min}" max="#{bookingBean.max}" ></input> <!--  lägg till min och max med dagens datum; detta får man suga ner till ett new Date objekt som sedan lägger till det i bokingen-->
 
@@ -43,7 +43,7 @@
                     <h:selectOneMenu   id="time"
                                        required="true"
                                        value="#{bookingBean.time}">
-                        <f:selectItem itemValue="17:00" itemLabel="17.00"/>       <!-- lägga till beans i itemvalue och item label för att visa vilka tider som finns-->
+                        <f:selectItem itemValue="17:00" itemLabel="17.00"/>       <!-- förvalda tider som läggs till beans som string. skulle vart inkallad ifrån databas. men hann inte med i slutprodukt-->
                         <f:selectItem itemValue="17:30" itemLabel="17.30"/>
                         <f:selectItem itemValue="18:00" itemLabel="18.00"/>
                         <f:selectItem itemValue="18:30" itemLabel="18.30"/>
@@ -52,7 +52,7 @@
                         <f:selectItem itemValue="20:00" itemLabel="20.00"/>
                     </h:selectOneMenu>
                 </div>
-                <div name="mail">
+                <div name="mail">   
                     <h:inputText value="#{bookingBean.email}" id="email" pt:placeholder="e-post" size="30" required="true"/> <!--man får sätta ett value="{nånbeans}" -->
                 </div>
                 <div name="comment">
@@ -64,9 +64,6 @@
                     <h:messages globalOnly="true" layout="table" style = "color:white"/>
 
                 </div>
-
-
-
             </h:form>
         </div> 
 

@@ -14,14 +14,14 @@
     </h:head>
 
     <h:body>
-
+        <!-- INDEX SIDA -->
         <div name="index" class="index">
 
             <div class="index_content">
-
-                <h1>Dagens Lunch - #{lunchBean.todaysWeekday}</h1>
-                <h:dataTable value="#{lunchBean.todaysLunch}" var="dish">
-                    <h:column>
+                <!-- Dagenslunch -->
+                <h1>Dagens Lunch - #{lunchBean.todaysWeekday}</h1>  <!-- visar vilken dag det är  -->
+                <h:dataTable value="#{lunchBean.todaysLunch}" var="dish">   <!-- visar rätterna som erbjuds för dagen  -->
+                    <h:column>  <!-- skapar en ny div för varje rätt -->
                         <div class="food_item">
                             <h3>#{dish.name}</h3>
                             <p>#{dish.description}</p>
@@ -34,9 +34,9 @@
             </div>
 
             <div class="event_content">
-                
+                 <!-- Event -->
                 <h:dataTable value="#{eventBean.commingEvent}" var="event">
-                    <h:column>
+                    <h:column>  <!-- tar in det event som finns i databas--> 
                         <div class="event_item">
                             <h2>#{event.name}</h2>   
                             <h3>Datum: #{event.date}</h3>
